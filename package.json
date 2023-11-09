@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "nodemon index.js",
     "start": "node index.js",
-    "test": "jest --coverage"
+    "test": "jest --coverage",
+    "migrate": "prisma migrate deploy"
   },
   "keywords": [],
   "author": "",
