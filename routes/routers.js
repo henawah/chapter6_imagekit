@@ -7,6 +7,7 @@ const express = require('express'),
 router.post('/create', multer.image.single('url'), controller.create);
 router.post('/upload', multerLib.single('url'), controller.upload);
 router.get('/users', controller.getUsers),
+router.get('/users/:id', controller.getUsersById),
 router.delete('/delete/id', controller.deleteUsers)
 
 

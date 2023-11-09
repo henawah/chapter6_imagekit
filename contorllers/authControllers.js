@@ -57,6 +57,27 @@ module.exports = {
             return res.status(500).json({ error: "Internal server error" });
         }
     },
+    getUsersById: async (req, res) => {
+        const { id } = req.params
+        try {
+            const response = await users.findUnique({
+                where: {
+                    id: parseInt(id)
+                },
+            });
+            return res.status(200).json({
+                message: 'Get all users success',
+                data: {
+                    ...response,
+                    balance: parseInt(response.balance)
+                },
+            });
+        } catch (error) {
+            console.log(error);
+            console.error("Error:", error);
+            return res.status(500).json({ error: "Internal server error" });
+        }
+    },
     deleteUsers: async (req, res) => {
         try {
             const { id } = req.params;
